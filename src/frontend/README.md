@@ -12,3 +12,5 @@ npm start
 ```
 
 The dev server proxies API requests to `http://localhost:5000`.
+
+The UI lets you select a repository, view its tags and inspect the manifest for a tag.

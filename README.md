@@ -25,3 +25,8 @@ npm start
 ```
 
 The frontend is configured to proxy `/api` requests to the backend.
+
+## Features
+
+- Browse repositories in the registry.
+- View tags for a repository and inspect the manifest for a given tag.
