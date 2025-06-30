@@ -18,3 +18,9 @@ Build and run:
 dotnet restore
 dotnet run
 ```
+
+## Endpoints
+
+- `GET /api/repositories` - list repositories from the registry.
+- `GET /api/repositories/{name}/tags` - list tags for the given repository.
+- `GET /api/repositories/{name}/tags/{tag}` - fetch manifest details for the specified tag.

@@ -33,6 +33,15 @@ app.MapGet("/api/repositories/{name}/tags", async (HttpClient http, string name)
     return Results.Json(tags ?? new TagList());
 });
 
+app.MapGet("/api/repositories/{name}/tags/{tag}", async (HttpClient http, string name, string tag) =>
+{
+    using var request = new HttpRequestMessage(HttpMethod.Get, $"{registryUrl}/v2/{name}/manifests/{tag}");
+    request.Headers.Add("Accept", "application/vnd.docker.distribution.manifest.v2+json");
+    var response = await http.SendAsync(request);
+    var manifestJson = await response.Content.ReadAsStringAsync();
+    return Results.Content(manifestJson, "application/json");
+});
+
 app.Run();
 
 record Catalog(string[] repositories = null!);
